@@ -203,23 +203,7 @@ public class Logica {
 		}
 	}
 
-	public void Switch(int x, int y, int contador) {
-		validar(x, y, contador);
-		if(cambio==true) {
-			String negra="n";
-			String reemplazo="n";
-			String nueva="b";
-			String cambio=negra.replace(reemplazo,nueva);
-		}
-		else
-		{
-			String blanca="b";
-			String reemplazo="b";
-			String nueva="n";
-			String cambio=blanca.replace(reemplazo,nueva);
-		}
-
-	}
+	
 	
 
 	public char[][] getTablero() {
