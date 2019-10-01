@@ -5,7 +5,7 @@ public class Logica {
 
 	private char [][]tablero= new char[8][8];
 	private int contador=0;
-	private boolean respuesta;
+	private boolean respuesta;//holi
 	
 	public void iniciar() {
 		tablero[3][3]= 'b';
