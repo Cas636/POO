@@ -6,65 +6,50 @@ import java.awt.event.*;
 
 public class Interfaz extends JFrame implements ActionListener{
 
-	JButton array[];
-	JButton boton1;
+	ImageIcon negra;
+	JButton array[][];
+	//boolean matriz[][];
 	JPanel Panel;
-	JButton boton2;
-	JButton boton3;
-	JButton boton4;
-	
+	int n=8;
 	public Interfaz() {
-		//setLayout (null);
-		//boton1 = new JButton("1");
-		//boton2 = new JButton("2");
-		//boton3 = new JButton("3");
-		//boton4 = new JButton("4");
-		//boton1.setBounds(300,250,100,30);
-		//add(boton1);
-		//boton1.addActionListener(this);
-		//boton2.addActionListener(this);
-		//boton3.addActionListener(this);
-		//boton4.addActionListener(this);
 		Panel = new JPanel();
-		
-		array = new JButton[8];
-		Panel.setLayout(new GridLayout (2,2));
-		for(int i=0;i<8;i++) {
-			array[i]=new JButton("boton"+ i);
-			array[i].addActionListener(this);
-			Panel.add(array[i]);
+		array = new JButton[n][n];
+		Panel.setLayout(new GridLayout (n,n));
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				array[i][j]=new JButton("boton "+ i +" , " + j);
+				array[i][j].addActionListener(this);
+				Panel.add(array[i][j]);
+			}
 		}
-		
-		//Panel.add(boton1);
-		//Panel.add(boton2);
-		//Panel.add(boton3);
-		//Panel.add(boton4);
 		add(Panel);
+
 	}
+
+
 	public void actionPerformed(ActionEvent c) {
-	if(c.getSource()==boton1) {
-		System.exit(0);
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				if(c.getSource()==array[i][j]) {
+					array[i][j].setIcon(new ImageIcon("src/Imagenes/negra.png"));
+				}
+
+			}
+		}
+
 	}
-	
-	if(c.getSource()==boton2) {
-		boton2.setText("cambio");
-		
+
+
+	public JButton[][] getArray() {
+		return array;
 	}
-	if(c.getSource()==boton3) {
-		boton3.setText("2+1");
+
+
+	public void setArray(JButton[][] array) {
+		this.array = array;
 	}
-	if(c.getSource()==boton4) {
-		boton4.setText("2+2");
-	}
-	}
-	
-	
-	
-	public JButton getBoton1() {
-		return boton1;
-	}
-	public void setBoton1(JButton boton1) {
-		this.boton1 = boton1;
-	}
-	
+
 }
+
+
+
