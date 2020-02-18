@@ -1,63 +1,66 @@
+package interfazz;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.GridLayout;
+import java.awt.event.*;
 
-public class Logica {
+public class Interfaz extends JFrame implements ActionListener{
 
-	private char [][]tablero= new char[8][8];
-	private int contador=0;
-	private boolean respuesta;
+	ImageIcon negra;
+	ImageIcon blanca;
+	JButton array[][];
+	JPanel Panel;
+	int n=8;
+	int contador=0;
 	
-	public void iniciar() {//listo
-		tablero[3][3]= 'b';
-		tablero[4][4]= 'b';
-		tablero[3][4]= 'n';
-		tablero[4][3]= 'n';
-
-	}
-
-	public void llenar1() {//listo
-
-		for(int i=0;i<8;i++){
-			for(int j=0;j<8;j++){
-				tablero[i][j]='-';
+	public Interfaz() {
+		Panel = new JPanel();
+		array = new JButton[n][n];
+		Panel.setLayout(new GridLayout (n,n));
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				array[i][j]=new JButton("boton "+ i +" , " + j);
+				array[i][j].addActionListener(this);
+				Panel.add(array[i][j]);
 			}
 		}
+		add(Panel);
+		iniciar();
+
 	}
 
+	public void iniciar() {
+		array[3][3].setIcon(new ImageIcon("src/Imagenes/blanca.png"));
+		array[4][4].setIcon(new ImageIcon("src/Imagenes/blanca.png"));
+		array[3][4].setIcon(new ImageIcon("src/Imagenes/negra.png"));
+		array[4][3].setIcon(new ImageIcon("src/Imagenes/negra.png"));
 
-	public void mostrar(){//listo
-		for(int i=0;i<tablero.length;i++){
-			for(int j=0;j<tablero.length;j++){
-				System.out.print(tablero[i][j]);
+	}
+	public void actionPerformed(ActionEvent c) {
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				if(c.getSource()==array[i][j]) {
+					if(contador<60) {
+						validar(i,j,contador);
+						if(((contador % 2)==0) && (i<8) && (j<8) && (c.getActionCommand().equals("boton "+ i +" , " + j))){
+						array[i][j].setIcon(new ImageIcon("src/Imagenes/negra.png"));
+						}
+					
+						if(((contador % 2)!=0) && (i<8) && (j<8) && (c.getActionCommand().equals("boton "+ i +" , " + j))){    
+							array[i][j].setIcon(new ImageIcon("src/Imagenes/blanca.png"));
+						}
+						contador++;
+					}
+				}
+
 			}
-			System.out.println(" ");
 		}
-		System.out.println(" ");
+
 	}
 
-
-
-	public  void captura(){
-		respuesta = true;
-		int x,y;
-		if(contador<60) {
-			x = Integer.parseInt(JOptionPane.showInputDialog("Ingresar x"));
-			y = Integer.parseInt(JOptionPane.showInputDialog("Ingresar y"));
-			if((x<8) && (y<8) && (tablero[x][y]=='-')){
-				validar(x,y,contador);			}
-			if (respuesta ==true){
-				System.out.print("No ingreso unas coordenadas correctas");
-
-			}
-		}
-		else {
-			System.out.print("Fin del juego");
-		}
-	}
-
-
-
-	public void validar(int x, int y, int contador){
+public void validar(int x, int y, int contador){
 		
 		if((x!=0) && (y!=0) && (x!=7) && (y!=7)) {
 			if ((contador%2)==0){
@@ -162,60 +165,18 @@ public class Logica {
 	}
 }
 
-
-
-	public void BuscaBlancas(int i, int j, int x, int y) {
-		if(tablero[i][j]=='b') {
-			int w=i;
-			int z=j;
-			while (tablero[w][z]=='b' && (w<8) && (z<8) && (w>0) && (z>0)) {
-				w=w+(i-x);
-				z=z+(j-y);
-			}
-			if (tablero[w][z]=='n') {
-				contador=contador+1;
-				tablero[x][y]='n';
-			}
-			else {
-				System.out.print("No ingreso unas coordenadas con un lugar de juego");
-			}
-
-
-		}
-	}
-	public void BuscaNegras(int i, int j, int x, int y, char tablero[][]) {
-		if(tablero[i][j]=='n') {
-			int w=i;
-			int z=j;
-			while (tablero[w][z]=='n' && (w<8) && (z<8) && (w>0) && (z>0)) {
-				w=w+(i-x);
-				z=z+(j-y);
-			}
-			if (tablero[w][z]=='b') {
-				contador=contador+1;
-				tablero[x][y]='b';
-			}
-			else {
-				System.out.print("No ingreso unas coordenadas con un lugar de juego");
-			}
-
-		}
-	}
-
-	
 	
 
-	public char[][] getTablero() {
-		return tablero;
+	public JButton[][] getArray() {
+		return array;
 	}
-	public void setTablero(char[][] c) {
-		this.tablero = c;
-	}
-	public int getContador() {
-		return contador;
-	}
-	public void setContador(int contador) {
-		this.contador = contador;
+
+
+	public void setArray(JButton[][] array) {
+		this.array = array;
 	}
 
 }
+
+
+
