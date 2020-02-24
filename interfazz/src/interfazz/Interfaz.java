@@ -79,7 +79,7 @@ public class Interfaz extends JFrame implements ActionListener{
 				for(int i=(x-1);i<(g+3);i++){//revisar el alrededor de la casilla 
 					for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
 						if(array[i][j].getText().equals("blancas")) {
-							BuscaBlancas(i,j,x,y);
+							BuscaBlancas(i,j,x,y,respuesta);
 							respuesta=false;
 						}
 					}
@@ -92,7 +92,7 @@ public class Interfaz extends JFrame implements ActionListener{
 				for(int i=(x-1);i<(g+3);i++){//revisar el alrededor de la casilla 
 					for(int j=(y-1);j<(m+3);j++){//el color diferente al que esta jugando
 						if(array[i][j].getText().equals("negras")) {
-							BuscaNegras(i,j,x,y, array);
+							BuscaNegras(i,j,x,y, array,respuesta);
 							respuesta=false;
 						}
 					}
@@ -105,7 +105,7 @@ public class Interfaz extends JFrame implements ActionListener{
 					for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
 						for(int j=y;j<2;j++){//del color diferente al que esta jugando
 							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y);
+								BuscaBlancas(i,j,x,y,respuesta);
 								respuesta=false;
 							}
 						}
@@ -114,9 +114,9 @@ public class Interfaz extends JFrame implements ActionListener{
 				else if(y!=0){
 					int m=y;
 					for(int i=(x);i<2;i++){//revisar el alrededor de la casilla 
-						for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
+						for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
 							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y);
+								BuscaBlancas(i,j,x,y,respuesta);
 								respuesta=false;
 							}
 						}
@@ -125,10 +125,10 @@ public class Interfaz extends JFrame implements ActionListener{
 
 				else{
 					int g=x;
-					for(int i=(x-1);i<1;i++){//revisar el alrededor de la casilla 
-						for(int j=y;j<(g+3);j++){//del color diferente al que esta jugando
+					for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
+						for(int j=y;j<2;j++){//del color diferente al que esta jugando
 							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y);
+								BuscaBlancas(i,j,x,y,respuesta);
 								respuesta=false;
 							}
 						}
@@ -140,8 +140,8 @@ public class Interfaz extends JFrame implements ActionListener{
 				if((x==0) && (y==0)){
 					for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
 						for(int j=y;j<2;j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y);
+							if(array[i][j].getText().equals("negras")) {
+								BuscaNegras(i,j,x,y,array,respuesta);
 								respuesta=false;
 							}
 						}
@@ -150,10 +150,11 @@ public class Interfaz extends JFrame implements ActionListener{
 				else if(y!=0){
 					int m=y;
 					for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
-						for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y);
+						for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
+							if(array[i][j].getText().equals("negras")) {
+								BuscaNegras(i,j,x,y,array,respuesta);
 								respuesta=false;
+								
 							}
 						}
 					}
@@ -162,9 +163,9 @@ public class Interfaz extends JFrame implements ActionListener{
 				else {
 					int g=x;
 					for(int i=(x-1);i<1;i++){//revisar el alrededor de la casilla 
-						for(int j=y;j<(g+3);j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y);
+						for(int j=y;j<(g+2);j++){//del color diferente al que esta jugando
+							if(array[i][j].getText().equals("negras")) {
+								BuscaNegras(i,j,x,y,array,respuesta);
 								respuesta=false;
 							}
 						}
@@ -176,7 +177,7 @@ public class Interfaz extends JFrame implements ActionListener{
 	}
 
 
-	public void BuscaBlancas(int i, int j, int x, int y) {
+	public void BuscaBlancas(int i, int j, int x, int y, boolean respuesta) {
 		if(array[i][j].getText().equals("blancas")) {
 			int w=i;
 			int z=j;
@@ -188,13 +189,14 @@ public class Interfaz extends JFrame implements ActionListener{
 				contador=contador+1;
 				array[x][y].setText("negras");
 				array[x][y].setIcon(new ImageIcon("src/Imagenes/negra.png"));
+				
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas de juego");
 			}
 		}
 	}
-	public void BuscaNegras(int i, int j, int x, int y, JButton array[][]) {
+	public void BuscaNegras(int i, int j, int x, int y, JButton array[][], boolean respuesta) {
 		if(array[i][j].getText().equals("negras")) {
 			int w=i;
 			int z=j;
@@ -206,6 +208,7 @@ public class Interfaz extends JFrame implements ActionListener{
 				contador=contador+1;
 				array[x][y].setText("blancas");
 				array[x][y].setIcon(new ImageIcon("src/Imagenes/blanca.png"));
+				
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas de juego");
