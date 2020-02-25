@@ -73,108 +73,157 @@ public class Interfaz extends JFrame implements ActionListener{
 	public void validar(int x, int y, int contador){
 
 		if((x!=0) && (y!=0) && (x!=7) && (y!=7)) {
-			if ((contador%2)==0){
-				int g=(x-1);
-				int m=(y-1);
-				for(int i=(x-1);i<(g+3);i++){//revisar el alrededor de la casilla 
-					for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
+			int g=(x-1);
+			int m=(y-1);
+			for(int i=(x-1);i<(g+3);i++){//revisar el alrededor de la casilla 
+				for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
 						if(array[i][j].getText().equals("blancas")) {
 							BuscaBlancas(i,j,x,y,respuesta);
-							respuesta=false;
-						}
-					}
-				}
-
-			}
-			else {
-				int g=(x-1);
-				int m=(y-1);
-				for(int i=(x-1);i<(g+3);i++){//revisar el alrededor de la casilla 
-					for(int j=(y-1);j<(m+3);j++){//el color diferente al que esta jugando
+							respuesta=false;}
+					}else {
 						if(array[i][j].getText().equals("negras")) {
-							BuscaNegras(i,j,x,y, array,respuesta);
+							BuscaNegras(i,j,x,y,array,respuesta);
 							respuesta=false;
 						}
 					}
 				}
 			}
 		}
-		else{
-			if ((contador%2)==0) {
-				if((x==0) && (y==0)){
-					for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
-						for(int j=y;j<2;j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y,respuesta);
-								respuesta=false;
-							}
-						}
-					}
-				}
-				else if(y!=0){
-					int m=y;
-					for(int i=(x);i<2;i++){//revisar el alrededor de la casilla 
-						for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y,respuesta);
-								respuesta=false;
-							}
-						}
-					}
-				}
-
-				else{
-					int g=x;
-					for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
-						for(int j=y;j<2;j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("blancas")) {
-								BuscaBlancas(i,j,x,y,respuesta);
-								respuesta=false;
-							}
+		else if((x==0) && (y==0)){
+			for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
+				for(int j=y;j<2;j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
 						}
 					}
 				}
 			}
-
-			else {
-				if((x==0) && (y==0)){
-					for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
-						for(int j=y;j<2;j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("negras")) {
-								BuscaNegras(i,j,x,y,array,respuesta);
-								respuesta=false;
-							}
-						}
-					}
-				}
-				else if(y!=0){
-					int m=y;
-					for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
-						for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("negras")) {
-								BuscaNegras(i,j,x,y,array,respuesta);
-								respuesta=false;
-								
-							}
-						}
-					}
-				}
-
-				else {
-					int g=x;
-					for(int i=(x-1);i<1;i++){//revisar el alrededor de la casilla 
-						for(int j=y;j<(g+2);j++){//del color diferente al que esta jugando
-							if(array[i][j].getText().equals("negras")) {
-								BuscaNegras(i,j,x,y,array,respuesta);
-								respuesta=false;
-							}
+		}
+		else if((x==0) && (y!=0)){
+			int m=y;
+			for(int i=(x);i<2;i++){//revisar el alrededor de la casilla 
+				for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
 						}
 					}
 				}
 			}
-
+		}
+		else if((x!=0) && (y==0)){
+			for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
+				for(int j=y;j<2;j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
+						}
+					}
+				}
+			}
+		}
+		else if((x==7) && (y==7)){
+			for(int i=(x-1);i<(x+1);i++){//revisar el alrededor de la casilla 
+				for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
+						}
+					}
+				}
+			}
+		}
+		else if((x==7) && (y==0)){
+			for(int i=6;i<8;i++){//revisar el alrededor de la casilla 
+				for(int j=0;j<2;j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
+						}
+					}
+				}
+			}
+		}
+		else if((x==0) && (y==7)){
+			for(int i=0;i<2;i++){//revisar el alrededor de la casilla 
+				for(int j=6;j<8;j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
+						}
+					}
+				}
+			}
+		}
+		else if((x!=0) && (y==7)){
+			for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
+				for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
+						}
+					}
+				}
+			}
+		}
+		else if((x==7) && (y!=0)){
+			for(int i=(x-1);i<(x+1);i++){//revisar el alrededor de la casilla 
+				for(int j=(y-1);j<(y+2);j++){//del color diferente al que esta jugando
+					if((contador%2)==0) {
+						if(array[i][j].getText().equals("blancas")) {
+							BuscaBlancas(i,j,x,y,respuesta);
+							respuesta=false;}
+					}else {
+						if(array[i][j].getText().equals("negras")) {
+							BuscaNegras(i,j,x,y,array,respuesta);
+							respuesta=false;
+						}
+					}
+				}
+			}
 		}
 	}
+
+
+
+
 
 
 	public void BuscaBlancas(int i, int j, int x, int y, boolean respuesta) {
@@ -189,7 +238,7 @@ public class Interfaz extends JFrame implements ActionListener{
 				contador=contador+1;
 				array[x][y].setText("negras");
 				array[x][y].setIcon(new ImageIcon("src/Imagenes/negra.png"));
-				
+
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas de juego");
@@ -208,7 +257,7 @@ public class Interfaz extends JFrame implements ActionListener{
 				contador=contador+1;
 				array[x][y].setText("blancas");
 				array[x][y].setIcon(new ImageIcon("src/Imagenes/blanca.png"));
-				
+
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas de juego");
