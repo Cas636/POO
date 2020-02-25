@@ -31,6 +31,7 @@ public class Interfaz extends JFrame implements ActionListener{
 
 	}
 
+	
 	public void iniciar() {
 		array[3][3].setIcon(new ImageIcon("src/Imagenes/blanca.png"));
 		array[3][3].setText("blancas");
@@ -67,7 +68,6 @@ public class Interfaz extends JFrame implements ActionListener{
 		}
 
 	}
-
 
 
 	public void validar(int x, int y, int contador){
@@ -222,10 +222,6 @@ public class Interfaz extends JFrame implements ActionListener{
 	}
 
 
-
-
-
-
 	public void BuscaBlancas(int i, int j, int x, int y, boolean respuesta) {
 		if(array[i][j].getText().equals("blancas")) {
 			int w=i;
@@ -245,6 +241,8 @@ public class Interfaz extends JFrame implements ActionListener{
 			}
 		}
 	}
+	
+	
 	public void BuscaNegras(int i, int j, int x, int y, JButton array[][], boolean respuesta) {
 		if(array[i][j].getText().equals("negras")) {
 			int w=i;
@@ -267,6 +265,131 @@ public class Interfaz extends JFrame implements ActionListener{
 	}
 
 
+	/*public void Cambiafichas(int x, int y) {
+
+		if((tablero[x+1][y]=='b')&&(tablero[x+2][y]!='-')&&(tablero[x+2][y]!='b')) {
+			tablero[x+1][y]='n';
+			tablero[x+2][y]='n';
+			if((tablero[x+1][y+1]=='b')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='b')) {
+				tablero[x+1][y+1]='n';
+				tablero[x+2][y+2]='n';
+			}
+			if((tablero[x+1][y-1]=='b')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='b')) {
+				tablero[x+1][y-1]='n';
+				tablero[x+2][y-2]='n';
+			}
+		}
+		if((tablero[x-1][y]=='b')&&(tablero[x-2][y]!='-')&&(tablero[x-2][y]!='b')) {
+			tablero[x-1][y]='n';
+			tablero[x-2][y]='n';
+			if((tablero[x+1][y+1]=='b')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='b')) {
+				tablero[x+1][y+1]='n';
+				tablero[x+2][y+2]='n';
+			}
+			if((tablero[x+1][y-1]=='b')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='b')) {
+				tablero[x+1][y-1]='n';
+				tablero[x+2][y-2]='n';
+			}
+		}
+		if((tablero[x+1][y+1]=='b')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='b')) {
+			tablero[x+1][y+1]='n';
+			tablero[x+2][y+2]='n';
+		}
+		if((tablero[x+1][y-1]=='b')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='b')) {
+			tablero[x+1][y-1]='n';
+			tablero[x+2][y-2]='n';
+		}
+		if((tablero[x][y-1]=='b')&&(tablero[x][y-2]!='-')&&(tablero[x][y-2]!='b')) {
+			tablero[x][y-1]='n';
+			tablero[x][y-2]='n';
+			if((tablero[x+1][y+1]=='b')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='b')) {
+				tablero[x+1][y+1]='n';
+				tablero[x+2][y+2]='n';
+			}
+			if((tablero[x+1][y-1]=='b')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='b')) {
+				tablero[x+1][y-1]='n';
+				tablero[x+2][y-2]='n';
+			}
+		}
+		if((tablero[x][y+1]=='b')&&(tablero[x][y+2]!='-')&&(tablero[x][y+2]!='b')) {
+			tablero[x][y+1]='n';
+			tablero[x][y+2]='n';
+			if((tablero[x+1][y+1]=='b')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='b')) {
+				tablero[x+1][y+1]='n';
+				tablero[x+2][y+2]='n';
+			}
+			if((tablero[x+1][y-1]=='b')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='b')) {
+				tablero[x+1][y-1]='n';
+				tablero[x+2][y-2]='n';
+			}
+
+		}		
+
+
+		if((contador%2)==0) {
+			if((tablero[x+1][y]=='n')&&(tablero[x+2][y]!='-')&&(tablero[x+2][y]!='n')) {
+				tablero[x+1][y]='b';
+				tablero[x+2][y]='b';
+				if((tablero[x+1][y+1]=='n')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='n')) {
+					tablero[x+1][y+1]='b';
+					tablero[x+2][y+2]='b';
+				}
+				if((tablero[x+1][y-1]=='n')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='n')) {
+					tablero[x+1][y-1]='b';
+					tablero[x+2][y-2]='b';
+				}
+			}
+			if((tablero[x-1][y]=='n')&&(tablero[x-2][y]!='-')&&(tablero[x-2][y]!='n')) {
+				tablero[x-1][y]='b';
+				tablero[x-2][y]='b';
+				if((tablero[x+1][y+1]=='n')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='n')) {
+					tablero[x+1][y+1]='b';
+					tablero[x+2][y+2]='b';
+				}
+				if((tablero[x+1][y-1]=='n')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='n')) {
+					tablero[x+1][y-1]='b';
+					tablero[x+2][y-2]='b';
+				}
+			}
+			if((tablero[x+1][y+1]=='n')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='n')) {
+				tablero[x+1][y+1]='b';
+				tablero[x+2][y+2]='b';
+			}
+			if((tablero[x+1][y-1]=='n')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='n')) {
+				tablero[x+1][y-1]='b';
+				tablero[x+2][y-2]='b';
+			}
+			if((tablero[x][y-1]=='n')&&(tablero[x][y-2]!='-')&&(tablero[x][y-2]!='n')) {
+				tablero[x][y-1]='b';
+				tablero[x][y-2]='b';
+				if((tablero[x+1][y+1]=='n')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='n')) {
+					tablero[x+1][y+1]='b';
+					tablero[x+2][y+2]='b';
+				}
+				if((tablero[x+1][y-1]=='n')&&(tablero[x+2][y-2]!='-')&&(tablero[x+2][y-2]!='n')) {
+					tablero[x+1][y-1]='b';
+					tablero[x+2][y-2]='b';
+				}
+			}
+			if((tablero[x][y+1]=='n')&&(tablero[x][y+2]!='-')&&(tablero[x][y+2]!='n')) {
+				tablero[x][y+1]='b';
+				tablero[x][y+2]='b';
+				if((tablero[x+1][y+1]=='n')&&(tablero[x+2][y+2]!='-')&&(tablero[x+2][y+2]!='n')) {
+					tablero[x+1][y+1]='b';
+					tablero[x+2][y+2]='b';
+				}
+				if((tablero[x+1][y-1]=='n')&&(tablero[x+2][y-2]!='-')&&(tablero[x+32][y-2]!='n')) {
+					tablero[x+1][y-1]='b';
+					tablero[x+2][y-2]='b';
+				}
+			}
+
+		}
+	}
+}*/
+
+	
+	
 	public JButton[][] getArray() {
 		return array;
 	}
