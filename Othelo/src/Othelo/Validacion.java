@@ -159,7 +159,7 @@ public class Validacion {
 
 		}
 		catch(Exception e) {
-			JOptionPane.showMessageDialog(null, "Error desde el validar "+e.toString());
+			//JOptionPane.showMessageDialog(null, "Error desde el validar "+e.toString());
 		}
 		return a;
 	}
