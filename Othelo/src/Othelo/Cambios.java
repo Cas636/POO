@@ -2,6 +2,8 @@ package Othelo;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.*;
+
 
 public class Cambios {
 
@@ -74,7 +76,7 @@ public class Cambios {
 			}
 		}
 		catch(Exception e) {
-			//JOptionPane.showMessageDialog(null, "Error desde el cambiar fichas del turno de las blancas "+e.toString());
+		//	JOptionPane.showMessageDialog(null, "Error desde el cambiar fichas del turno de las blancas "+e.toString());
 		}
 		return a;
 	}

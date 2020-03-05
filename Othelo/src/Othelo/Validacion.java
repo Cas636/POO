@@ -43,7 +43,7 @@ public class Validacion {
 					}
 				}
 			}
-			else if((x==0) && (y!=0)){
+			else if((x==0) && (y!=0) && (y!=7)){
 				int m=y;
 				for(int i=(x);i<2;i++){//revisar el alrededor de la casilla 
 					for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
@@ -60,7 +60,7 @@ public class Validacion {
 					}
 				}
 			}
-			else if((x!=0) && (y==0)){
+			else if((x!=7) && (x!=0) && (y==0)){
 				for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
 					for(int j=y;j<2;j++){//del color diferente al que esta jugando
 						if((contador%2)==0) {
@@ -124,7 +124,7 @@ public class Validacion {
 					}
 				}
 			}
-			else if((x!=0) && (y==7)){
+			else if((x!=0) && (y==7)&& (x!=7)){
 				for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
 					for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
 						if((contador%2)==0) {
@@ -140,7 +140,7 @@ public class Validacion {
 					}
 				}
 			}
-			else if((x==7) && (y!=0)){
+			else if((x==7) && (y!=0) && (y!=7)){
 				for(int i=(x-1);i<(x+1);i++){//revisar el alrededor de la casilla 
 					for(int j=(y-1);j<(y+2);j++){//del color diferente al que esta jugando
 						if((contador%2)==0) {
@@ -159,7 +159,7 @@ public class Validacion {
 
 		}
 		catch(Exception e) {
-			//JOptionPane.showMessageDialog(null, "Error desde el validar "+e.toString());
+		//	JOptionPane.showMessageDialog(null, "Error desde el validar "+e.toString());
 		}
 		return a;
 	}
