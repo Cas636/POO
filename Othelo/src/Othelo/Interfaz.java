@@ -26,13 +26,18 @@ public class Interfaz extends JFrame implements ActionListener{
 		Panel = new JPanel();
 		array = new JButton[8][8];
 		Panel.setLayout(new GridLayout (8,8));
+		try {
 
-		for(int x=0;x<8;x++) {
-			for(int y=0;y<8;y++) {
-				array[x][y]=new JButton("boton "+ x +" , " + y);
-				array[x][y].addActionListener(this);
-				Panel.add(array[x][y]);
+			for(int x=0;x<8;x++) {
+				for(int y=0;y<8;y++) {
+					array[x][y]=new JButton("boton "+ x +" , " + y);
+					array[x][y].addActionListener(this);
+					Panel.add(array[x][y]);
+				}
 			}
+		}
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Error desde el constructor de la interfaz "+e.toString());
 		}
 		add(Panel);
 		logica3.iniciar(array);
@@ -41,28 +46,33 @@ public class Interfaz extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent c) {
 
-		for(int x=0;x<8;x++) {
-			for(int y=0;y<8;y++) {
+		try {
+			for(int x=0;x<8;x++) {
+				for(int y=0;y<8;y++) {
 
-				if(contador<60) {
-					if(c.getSource()==array[x][y]) {
-						if(((x<8) && (y<8) && (c.getActionCommand().equals("boton "+ x +" , " + y)))){
-							a=logica1.validar(a, x, y, contador, array);
-							if(a==false) {
-								contador=contador+1;
+					if(contador<60) {
+						if(c.getSource()==array[x][y]) {
+							if(((x<8) && (y<8) && (c.getActionCommand().equals("boton "+ x +" , " + y)))){
+								a=logica1.validar(a, x, y, contador, array);
+								if(a==false) {
+									contador=contador+1;
+								}
+								else if (a == true){
+									JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas");
+								}
+								a=true;
 							}
-							else if (a == true){
-								JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas");
-							}
-							a=true;
 						}
 					}
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "Fin del juego");
-					System.exit(0);
+					else {
+						JOptionPane.showMessageDialog(null, "Fin del juego");
+						System.exit(0);
+					}
 				}
 			}
+		}
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Error desde la toma de la jugada "+e.toString());
 		}
 
 	}
