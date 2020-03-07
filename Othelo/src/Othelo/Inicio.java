@@ -2,7 +2,6 @@ package Othelo;
 
 import javax.swing.*;
 
-
 public class Inicio {
 
 	public void iniciar( JButton array[][] ) {
