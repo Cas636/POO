@@ -21,7 +21,7 @@ public class Interfaz extends JFrame implements ActionListener{
 	//Objetos de otras clases
 	Inicio logica3 = new Inicio();
 	Validacion logica1 = new Validacion();
-
+    SinLugar turnoex=new SinLugar();
 	public Interfaz() {//Metodo Constructor
 
 		Panel = new JPanel();
@@ -48,10 +48,12 @@ public class Interfaz extends JFrame implements ActionListener{
 		int h=0;
 		int f=0;
 		primerpanel p1= new primerpanel();
+		
 		try {
 			for(int x=0;x<8;x++) {
 				for(int y=0;y<8;y++) {
 					if(contador<60) {
+						
 						if(c.getSource()==array[x][y]) {
 							if(((x<8) && (y<8) && (c.getActionCommand().equals("boton "+ x +" , " + y)))){
 								a=logica1.validar(a, x, y, contador, array);
@@ -59,6 +61,8 @@ public class Interfaz extends JFrame implements ActionListener{
 									contador=contador+1;
 								}
 								else if (a == true){
+									turnoex.TurnoExtra(contador, array);
+
 									JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas");
 								}
 								a=true;
