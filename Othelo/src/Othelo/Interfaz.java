@@ -15,8 +15,8 @@ public class Interfaz extends JFrame implements ActionListener{
 	ImageIcon blanca;
 
 	//Variables globales
-	boolean a=true;//lleva los turnos
-	boolean ginet = true;
+	boolean a;//lleva los turnos
+	boolean ginet;
 	int contador=0;//leva los turnos y el numero de jugadas
 
 	//Objetos de otras clases
@@ -57,8 +57,10 @@ public class Interfaz extends JFrame implements ActionListener{
 					if(contador<60) {
 
 						if(c.getSource()==array[x][y]) {
+							
 							if(((x<8) && (y<8) && (c.getActionCommand().equals("boton "+ x +" , " + y)))){
-								if((turnoex.TurnoExtra(contador, array, ginet)==false)) {
+								ginet=turnoex.TurnoExtra(contador, array, ginet);
+								if(ginet==false) {
 									a=logica1.validar(a, x, y, contador, array);
 									if(a==false) {
 										contador=contador+1;
@@ -67,6 +69,7 @@ public class Interfaz extends JFrame implements ActionListener{
 										JOptionPane.showMessageDialog(null, "No ingreso unas coordenadas correctas");
 									}
 									a=true;
+                                                                        ginet=true;
 								}
 								else {
 									for(int e=0;e<8;e++){

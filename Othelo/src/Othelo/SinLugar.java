@@ -17,11 +17,11 @@ public class SinLugar {
 						for(int i=(x-1);i<(g+3);i++){//revisar el alrededor de la casilla 
 							for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 									}
 								}
@@ -33,12 +33,12 @@ public class SinLugar {
 						for(int i=x;i<2;i++){//revisar el alrededor de la casilla 
 							for(int j=y;j<2;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
@@ -51,11 +51,11 @@ public class SinLugar {
 						for(int i=(x);i<2;i++){//revisar el alrededor de la casilla 
 							for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 										
 									}
@@ -67,11 +67,11 @@ public class SinLugar {
 						for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
 							for(int j=y;j<2;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
@@ -83,11 +83,11 @@ public class SinLugar {
 						for(int i=(x-1);i<(x+1);i++){//revisar el alrededor de la casilla 
 							for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
@@ -99,12 +99,12 @@ public class SinLugar {
 						for(int i=6;i<8;i++){//revisar el alrededor de la casilla 
 							for(int j=0;j<2;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
@@ -116,12 +116,12 @@ public class SinLugar {
 						for(int i=0;i<2;i++){//revisar el alrededor de la casilla 
 							for(int j=6;j<8;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
@@ -133,12 +133,12 @@ public class SinLugar {
 						for(int i=(x-1);i<(x+2);i++){//revisar el alrededor de la casilla 
 							for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 									}
@@ -150,12 +150,12 @@ public class SinLugar {
 						for(int i=(x-1);i<(x+1);i++){//revisar el alrededor de la casilla 
 							for(int j=(y-1);j<(y+2);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
-									if(array[i][j].getText().equals("negras")) {
+									if(array[i][j].getText().equals("blancas")) {
 										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
-									if(array[i][j].getText().equals("blancas")) {
+									if(array[i][j].getText().equals("negras")) {
 										ginet=rev.revNegras(i,j,x,y,array,ginet);
 									}
 								}
