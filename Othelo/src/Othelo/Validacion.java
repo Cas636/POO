@@ -1,3 +1,4 @@
+
 package Othelo;
 
 import javax.swing.*;

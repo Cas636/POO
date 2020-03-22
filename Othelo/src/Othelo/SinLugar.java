@@ -3,10 +3,10 @@ package Othelo;
 import javax.swing.JButton;
 
 public class SinLugar {
+	
+	Revision rev = new Revision();
 
-	public void TurnoExtra( int contador, JButton array[][]){
-		int turnon=0;
-		int turnob=0;
+	public boolean TurnoExtra( int contador, JButton array[][], boolean ginet ){
 		try {
 			for(int x=0;x<8;x++){
 				for(int y=0;y<8;y++){
@@ -18,11 +18,11 @@ public class SinLugar {
 							for(int j=(y-1);j<(m+3);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-										turnob=turnob+1;
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 									}
 								}
 							}
@@ -34,12 +34,12 @@ public class SinLugar {
 							for(int j=y;j<2;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-										turnob=turnob+1;
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
 								}
@@ -52,12 +52,12 @@ public class SinLugar {
 							for(int j=(y-1);j<(m+2);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-										turnob=turnob+1;
-
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
+										
 									}
 								}
 							}
@@ -68,11 +68,11 @@ public class SinLugar {
 							for(int j=y;j<2;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-										turnob=turnob+1;
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
 								}
@@ -84,11 +84,11 @@ public class SinLugar {
 							for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-										turnob=turnob+1;
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
 								}
@@ -100,13 +100,12 @@ public class SinLugar {
 							for(int j=0;j<2;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-										turnob=turnob+1;
-
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
 								}
@@ -118,13 +117,12 @@ public class SinLugar {
 							for(int j=6;j<8;j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-
-										turnob=turnob+1;
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 
 									}
 								}
@@ -136,14 +134,13 @@ public class SinLugar {
 							for(int j=(y-1);j<(y+1);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
 
-										turnob=turnob+1;
-
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 									}
 								}
 							}
@@ -154,14 +151,12 @@ public class SinLugar {
 							for(int j=(y-1);j<(y+2);j++){//del color diferente al que esta jugando
 								if((contador%2)==0) {
 									if(array[i][j].getText().equals("negras")) {
-										turnon=turnon+1;
+										ginet=rev.revBlancas(i,j,x,y,array,ginet);
 
 									}
 								}else {
 									if(array[i][j].getText().equals("blancas")) {
-
-										turnob=turnob+1;
-
+										ginet=rev.revNegras(i,j,x,y,array,ginet);
 									}
 								}
 							}
@@ -169,12 +164,10 @@ public class SinLugar {
 					}
 				}
 			}
-			if((turnon!=0)||(turnob!=0)) {
-				contador=contador+1;
-			}
 		}
 		catch(Exception e) {
 			//	JOptionPane.showMessageDialog(null, "Error desde el validar "+e.toString());
 		}
+		return ginet;
 	}
 }
